@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose =require('mongoose')
 const morgan =require('morgan')
 const sanpham = require('../model/sanpham')
@@ -21,9 +22,9 @@ const io = socketIo(server, {
     origin:"*"
   },
 });
-const port= 4000
+const port= process.env.PORT
 
-const uri='mongodb+srv://luannee23044:L01223645490z!@luannee23044.0shefdc.mongodb.net/TestNRM'
+const uri=process.env.MONGO_URI
 
 //khai bao web3
 const web3 = new Web3 (new Web3.providers.WebsocketProvider('ws://127.0.0.1:7545'))
